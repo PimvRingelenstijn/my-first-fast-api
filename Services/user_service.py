@@ -1,6 +1,6 @@
 from apimodels.api_user import APIUser
 from mappers.user_mappers import UserMapper
-from repositories.user_repositories import UserRepository
+from repository.user_repository import UserRepository
 
 
 class UserService:
