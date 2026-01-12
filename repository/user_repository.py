@@ -1,4 +1,4 @@
-from apimodels.db_user import DbUser
+from models.user_model import User
 from repository.base_repository import BaseRepository
 
 
@@ -8,7 +8,12 @@ class UserRepository(BaseRepository):
     def __init__(self):
         pass
 
-    def save_new_user(db_user: DbUser):
-        print("repositories")
-        print(f"User {db_user.name} has been created.")
+    @classmethod
+    def save_new_user(cls, user: User) -> User:
+        """Save a new user to the database"""
+        with cls._get_session() as session:
+            session.add(user)
+            session.commit()
+            session.refresh(user)
+            return user
 

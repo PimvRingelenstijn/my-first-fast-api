@@ -13,5 +13,5 @@ class UserRouter:
 
     @router.post("/create-user")
     def create_user(api_user: APIUser):
-        print("router")
-        UserService.create_user(api_user)
+        """Create a new user"""
+        return UserService.create_user(api_user)
